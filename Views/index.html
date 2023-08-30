@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tenteru</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Philosopher&family=Roboto+Mono&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+  <style>
+    h2 {
+      font-family: "Philosopher", sans-serif;
+    }
+    label, li, p {
+      font-family: "Roboto Mono", monospace;
+    }
+    footer {
+      margin-top: 20px;
+      padding-bottom: 50px;
+      background-color: #1f1e1e;
+    }
+    .input-wrapper {
+      width: 85%;
+    }
+    form, .navbar-brand {
+      margin-top: 10px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .text {
+      color: #0c62db;
+    }
+    .nav {
+      background-color: #0c62db;
+      padding-bottom: 20px;
+    }
+    .toggle-button {
+      position: absolute;
+      top: 26px;
+      right: 60px;
+    }
+    .dark-mode {
+      background-color: #222;
+      color: #f4f7f8;
+    }
+    .form-div-container {
+      display: flex;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: "Original Surfer", cursive;
+      font-size: 1.5rem;
+      margin-left: 40px;
+      color: #ff9400;
+    }
+     /* Additional styles for responsiveness */
+     @media (max-width: 900px) {
+      .form-div-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light nav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <span class="logo">Tenteru:</span>
+      </a>
+      <div class="d-flex align-items-center ml-auto">
+        <a href="https://flutterwave.com/donate/9rk04tkzqyyt" class="nav-link mr-3" style="margin-right: 180px; margin-top: 10px;">
+          <span class="text"><b>Donate</b></span>
+          <i class="fas fa-donate ms-1"></i>
+        </a>
+        <button id="toggleMode" class="btn btn-sm btn-outline-secondary toggle-button">Toggle Mode</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="d-flex justify-content-center align-items-center">
+      <img src="https://res.cloudinary.com/dcoxo8snb/image/upload/v1692001437/b80cdc09-9bbc-48e1-8539-0d5689dff0fe_ni3f32.gif" alt="Tenteru Web App" class="img-fluid" />
+      <div class="ms-4">
+        <h2 class="text">Welcome to Tenteru!</h2>
+        <h5 style="line-height: 30px">
+          Stay ahead in the tech world with Tenteru. Get personalized updates on tech events and conferences happening near you.
+        </h5>
+      </div>
+    </div>
+    <br />
+
+    <form class="mb-5 mt-5" method="post" action="/tenteruv1/events">
+      <div class="form-div-container">
+        <div class="mb-3 flex-grow-1 input-wrapper">
+          <label for="location"><b>Location</b></label>
+          <select class="form-select input-wrapper" id="location" name="location" required>
+            <option value="" disabled selected>Select a location</option>
+            <option value="Lagos">Lagos</option>
+            <option value="Luxembourg">Luxembourg</option>
+            <option value="London">London</option>
+            <option value="Paris">Paris</option>
+            <option value="Berlin">Berlin</option>
+            <option value="Brussels">Brussels</option>
+            <option value="Copenhagen">Copenhagen</option>
+            <option value="Warsaw">Warsaw</option>
+            <option value="Stockholm">Stockholm</option>
+            <!-- Add other popular cities here -->
+          </select>
+        </div>
+        <div class="mb-3 flex-grow-1 input-wrapper">
+          <label for="eventType"><b>Type of Event</b></label>
+          <input type="text" class="form-control input-wrapper" id="eventType" name="eventType" placeholder="Enter event type (e.g. tech)" required />
+        </div>
+        <div class="mb-3 flex-grow-1 input-wrapper">
+          <label for="eventDate"><b>Date</b></label>
+          <select class="form-select input-wrapper" id="eventDate" name="eventDate" required>
+            <option value="" disabled selected>Select a date option</option>
+            <option value="today">Today</option>
+            <option value="tomorrow">Tomorrow</option>
+            <option value="this-weekend">This Weekend</option>
+            <option value="this-week">This Week</option>
+            <option value="next-week">Next Week</option>
+            <option value="this-month">This Month</option>
+            <option value="next-month">Next Month</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn mt-3" style="background-color: #0c62db; color: white">Find Events</button>
+    </form>
+
+    <h5><u>Here's how Tenteru works:</u></h5>
+    <ul>
+      <li><b>Customized Event Search:</b> Tenteru helps you find tech events and conferences tailored to your location and preferences.</li>
+      <li><b>Stay Updated:</b> Receive personalized event updates, ensuring you never miss out on opportunities to learn and network.</li>
+      <li><b>Effortless Process:</b> Enter your location, preferred event type (e.g. tech), and month, and Tenteru will handle the rest.</li>
+      <li><b>Scraping Power:</b> Tenteru uses advanced web scraping to fetch the latest tech events from reliable sources.</li>
+      <li><b>Email Notifications:</b> As soon as the event data is available, Tenteru will email you the details using puppeteer.</li>
+    </ul>
+    <p class="mt-5">
+      Experience the future of staying informed in the tech world. Welcome to <b>Tenteru</b>, your personalized tech event companion.
+    </p>
+    <br />
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-white py-5">
+    <div class="container text-center">
+      <div class="mb-3">
+        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-github"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <p class="mb-4">
+        Made with <span class="footer-tech">&#10084;&#65039;</span> by <a href="https://www.linkedin.com/in/israel-abazie/" class="footer-link" target="_blank">Israel Abazie</a>
+      </p>
+      <p class="mb-0">
+        &copy; 2023 Tenteru Technology, All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+   <!-- Validation Error Modal -->
+<div class="modal fade" id="validationErrorModal" tabindex="-1" aria-labelledby="validationErrorModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="validationErrorModalLabel">Validation Error</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="d-flex align-items-center">
+            <span class="fs-1 me-2 text-danger"><i class="fas fa-exclamation-circle"></i></span>
+            <p class="mb-0">Oops! enter a valid event type</p>
+          </div>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <!-- Add your custom scripts here -->
+  <script>
+// Track changes to event type field and trigger modal on mouse-out
+const eventTypeInput = document.getElementById("eventType");
+eventTypeInput.addEventListener("change", function () {
+  const enteredEventType = eventTypeInput.value.toLowerCase();
+  const allowedEventTypes = [
+    // Tech Events
+    "conference", "workshop", "seminar", "meetup", "webinar", "tech", "hackathon",
+    // Non-Tech Events
+    "music concert", "art exhibition", "fitness class", "food festival", "comedy show"
+    // Add more event types as needed
+  ];
+
+  if (!allowedEventTypes.includes(enteredEventType)) {
+    const validationErrorModal = new bootstrap.Modal(
+      document.getElementById("validationErrorModal")
+    );
+    validationErrorModal.show();
+  }
+});
+
+    // Toggle dark mode on button click
+    const toggleModeButton = document.getElementById("toggleMode");
+    toggleModeButton.addEventListener("click", function () {
+      const isDarkMode = document.body.classList.contains("dark-mode");
+      if (isDarkMode) {
+        document.body.classList.remove("dark-mode");
+        localStorage.setItem("darkMode", "false"); // Store the value in local storage as a string
+      } else {
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("darkMode", "true"); // Store the value in local storage as a string
+      }
+    });
+
+    // Check if dark mode is stored in local storage
+    const isDarkModeStored = localStorage.getItem("darkMode") === "true"; // Compare with the string 'true'
+    if (isDarkModeStored) {
+      document.body.classList.add("dark-mode");
+    }
+  </script>
+</body>
+</html>
