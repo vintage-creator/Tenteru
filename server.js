@@ -38,6 +38,10 @@ app.use(passport.session());
 
 const port = process.env.NODE_ENV === "production" ? process.env.PORT : 5500;
 
+app.get("/", (req, res) => {
+  res.render('signin', { flashMessages: req.flash() });
+});
+
 app.get("/signup(.html)?", (req, res) => {
   res.render('signup', { flashMessages: req.flash() });
 });
@@ -63,7 +67,7 @@ mongoose.connection.once("open", async () => {
     if (err) {
       throw new Error("Error connecting to the server");
     }
-    console.log(chalk.bgRed(`Server is running on http://localhost:${port}/auth`));
+    console.log(chalk.bgRed(`Server is running on http://localhost:${port}`));
   });
 });
 
