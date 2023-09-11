@@ -63,7 +63,7 @@ mongoose.connection.once("open", async () => {
     if (err) {
       throw new Error("Error connecting to the server");
     }
-    console.log(chalk.bgRed(`Server is running on http://localhost:${port}`));
+    console.log(chalk.bgRed(`Server is running on http://localhost:${port}/auth`));
   });
 });
 
