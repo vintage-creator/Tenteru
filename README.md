@@ -27,7 +27,9 @@
     <li>express: Web application framework</li>
     <li>puppeteer: Headless browser automation library for web scraping</li>
     <li>nodemailer: Module for sending emails using Node.js</li>
-     <li>node-cron: A cron-like job scheduler for Node.js</li>
+    <li>node-cron: A cron-like job scheduler for Node.js</li>
+    <li>joi: Data validation library for JavaScript</li>
+    <li>passport: Authentication middleware for Node.js</li>
   </ul>
 
   <h3>Step 4:</h3>
