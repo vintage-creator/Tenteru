@@ -10,7 +10,7 @@ const passport = require('passport');
 const mongoose = require("mongoose");
 const ejs = require("ejs");
 const flash = require('express-flash');
-const tenteruDB = require("./config/mongoDB.js");
+const tenteruDB = require("./Config/mongoDB");
 tenteruDB();
 
 // Set the view engine to EJS
