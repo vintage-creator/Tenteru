@@ -1,7 +1,10 @@
 {
   "name": "tenteru",
   "version": "1.0.0",
-  "description": "<!DOCTYPE html>\r <html>",
+   "engines": {
+    "node": ">=14.20.1"
+  },
+  "description": "Tenteru is a personalized tech event discovery platform that keeps you updated on the latest tech events and conferences happening near you. With Tenteru, you can easily find and explore tech-related events, network with industry professionals, and stay ahead in the tech world.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
