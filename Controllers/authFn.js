@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const flash = require('express-flash');
 
 const authFn = (req, res) => {
-  res.render('signIn', { flashMessages: req.flash() });
+  res.render('signin', { flashMessages: req.flash() });
 };
 
 const signUpFn = async (req, res) => {
